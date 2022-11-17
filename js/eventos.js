@@ -7,10 +7,10 @@ const listarEventos = async () => {
             "Content-Type": "application/json"
         }
     }).then((resposta) => {
-        //retorna lista em array de objetos
+        
         return resposta.json();
     });
-    // console.log(eventos);
+    
     const tbody = document.querySelector('.exibe-event');
     let htmlEventos = "";
     eventos.forEach(evento => {
