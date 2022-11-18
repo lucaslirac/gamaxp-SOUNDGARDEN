@@ -73,7 +73,7 @@ formEditar.addEventListener("submit", async (event) => {
     }).then((response) => {
         return response.json();
     }).then((responseOBJ) => {
-
+        alert("Evento editado com sucesso");
         window.location.replace('admin.html');
     });
 
