@@ -19,7 +19,7 @@ const novoEventoObj = {
     "poster": inputBanner.value,
     "attractions": inputAtracoes.value.split(","),
     "description": inputDescricao.value,
-    "scheduled": fullDateTime.toISOString(),
+    "scheduled":  inputData.value,
     "number_tickets": inputLotacao.value
 }
 
@@ -38,6 +38,7 @@ const resposta = fetch(SOUND_URL, {
     return response.json()
 }).then((responseOBJ) => {
     console.log(responseOBJ);
+    alert("Evento criado com sucesso");
     window.location.href = ("./admin.html")
 });
 
