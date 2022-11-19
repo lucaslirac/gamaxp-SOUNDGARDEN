@@ -1,4 +1,4 @@
-Projeto heands on 2 da Gama Acadamy 
+Projeto 2 da Gama Acadamy 
 
 
 https://lucaslirac.github.io/gamaxp-SOUNDGARDEN/
