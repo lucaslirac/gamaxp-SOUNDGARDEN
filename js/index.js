@@ -17,7 +17,7 @@ function nextImage(){
 
 
 const indexHTML = document.querySelector("main");
-indexHTML.innerHTML += `<div id="addReservaModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+indexHTML.innerHTML += `<div id="addReservaModal" id_evento class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -34,7 +34,7 @@ aria-hidden="true">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-10">
-                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome completo">
+                        <input data-name="nome" type="text" class="form-control" id="nome" placeholder="Nome completo">
                     </div>
                 </div>
 <br>
@@ -45,11 +45,13 @@ aria-hidden="true">
                             placeholder="Seu melhor e-mail">
                     </div>
                 </div>
+                <input type="hidden" name="tickets" id="tickets">
+                <input type="hidden" name="id" data-id="inputId" id="id">
                 <div class="form-group row">
                     <div class="col-sm-10">
                     <br>
                         <input type="submit" name="CadUser" id="CadUser" value="Confirmar reserva"
-                            class="btn btn-outline-success">
+                            class="btn btn-dark">
                     </div>
                 </div>
             </form>
@@ -107,50 +109,30 @@ listarEventos();
 
 //MODAL
 const modalReserva = document.getElementById("addReservaModal");
-const modalReservaObj = new bootstrap.Modal(modalReserva);
-
-const params = new URLSearchParams(location.search)
-params.get('id');
-
-modalReserva.addEventListener("show.bs.modal", function (event) {
-  const button = event.relatedTarget;
-  const name = button.getAttribute("data-name");
-  const email = button.getAttribute("data-email");
-
-  modalReserva.querySelector("#addReservaModalLabel").textContent = name;
-});
-
-modalReserva.addEventListener("hide.bs.modal", function () {
-  modalReserva.querySelector("#addReservaModalLabel").textContent = "";
-  modalReserva.querySelector("#name").value = "";
-  modalReserva.querySelector("#email").value = "";
-});
 
 const formReserva = modalReserva.querySelector("form");
 
 formReserva.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const body = {};
+  const dados = {
+    owner_name: document.getElementById('nome').value,
+    owner_email: document.getElementById('email').value,
+    number_tickets: 1,
+    event_id: "",
+  }; 
 
-  for (i = 0; i < formReserva.elements.length - 1; i++) {
-    const item = formReserva.elements[i];
-
-    body[item.name] = item.value;
-  }
-
-  fetch(`${url}/bookings`, {
+  fetch(`${url}/bookings/`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(dados),
   })
     .then(() => {
       alert("Reserva feita com sucesso");
-
-      modalReservaObj.hide();
+      window.location.replace("index.html")
     })
     .catch((error) => console.log(error.message));
 });
