@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -9,52 +9,96 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-</head>
+   </head>
 
 <body>
     <header class=" d-flex justify-content-center align-items-center">
         <a href="index.html">
             <img src="img/Sound-logo (1).png" width="300" alt="">
         </a>
+
+        <div id="addReservaModal" id_evento class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addReservaModalLabel">Reserva de ingressos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span id="closeBtn" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form id="reserva" class="col-12">
+                    <form method="post" id="insert_form">
+                        <input type="hidden" name="event_id" id="id" value="">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input data-name="nome" type="text" class="form-control" id="nome" placeholder="Nome completo">
+                            </div>
+                        </div>
+        <br>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input name="email" type="email" class="form-control" id="email"
+                                    placeholder="Seu melhor e-mail">
+                            </div>
+                        </div>
+                        <input type="hidden" name="tickets" id="tickets">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                            <br>
+                                <input type="submit" name="reservas" id="reservas" id_evento value="Confirmar reserva"
+                                    class="btn btn-dark">                            </div>
+                        </div>
+                    </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
     </header>
     <main>
         <section class="full">
             <div class="container text-center">
                 <h2>Todos os Eventos</h2>
             </div>
-            <div class="container d-flex justify-content-center align-items-center flex-wrap exibe-event">
+            <div class="container d-flex justify-content-center align-items-center flex-wrap" id="eventocontainer">
                 
             </div>
-        </section>
-        <section class="full d-flex justify-content-center align-items-center"
-            style="background-color: #f2f2f2; color: #555">
-            <div class="container">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col">
-                        <h2>A Sound Garden</h2>
-
-                        <p>Sound Garden é uma casa de show super descolada</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id autem, fugiat recusandae, totam
-                            inventore harum iste libero obcaecati neque fugit ipsam. Dolorum quae quis odio rem at eum
-                            cumque excepturi.</p>
-                        <p>Alias animi nostrum aperiam sapiente laudantium
-                            corporis esse voluptatem, repellendus nam exercitationem reprehenderit error. Maiores
-                            quibusdam molestias adipisci magni maxime explicabo voluptatibus ipsum delectus, cum soluta
-                            esse ab ducimus. Molestias facilis hic quod similique, voluptate porro architecto itaque
-                            odit dolore temporibus, dignissimos magni delectus in?</p>
-                        <p>Nemo excepturi soluta provident minima amet? Architecto
-                            distinctio molestiae nisi necessitatibus nesciunt possimus dignissimos consequatur iusto
-                            cupiditate quam accusantium tempora odio at deleniti explicabo voluptatum blanditiis natus
-                            qui, dolorem ea eius minima itaque aspernatur? Quia voluptatem ex, mollitia consequuntur
-                            quas incidunt, aliquid explicabo nesciunt hic nobis libero velit at reiciendis.</p>
-                    </div>
-                    <div class="col">
-                        <img src="img/music.svg" width="500px">
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </section>
+                    <section class="full d-flex justify-content-center align-items-center"
+                        style="background-color: #f2f2f2; color: #555">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col">
+                                    <h2>A Sound Garden</h2>
+            
+                                    <p>Sound Garden é uma casa de show super descolada</p>
+            
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id autem, fugiat recusandae, totam
+                                        inventore harum iste libero obcaecati neque fugit ipsam. Dolorum quae quis odio rem at eum
+                                        cumque excepturi.</p>
+                                    <p>Alias animi nostrum aperiam sapiente laudantium
+                                        corporis esse voluptatem, repellendus nam exercitationem reprehenderit error. Maiores
+                                        quibusdam molestias adipisci magni maxime explicabo voluptatibus ipsum delectus, cum soluta
+                                        esse ab ducimus. Molestias facilis hic quod similique, voluptate porro architecto itaque
+                                        odit dolore temporibus, dignissimos magni delectus in?</p>
+                                    <p>Nemo excepturi soluta provident minima amet? Architecto
+                                        distinctio molestiae nisi necessitatibus nesciunt possimus dignissimos consequatur iusto
+                                        cupiditate quam accusantium tempora odio at deleniti explicabo voluptatum blanditiis natus
+                                        qui, dolorem ea eius minima itaque aspernatur? Quia voluptatem ex, mollitia consequuntur
+                                        quas incidunt, aliquid explicabo nesciunt hic nobis libero velit at reiciendis.</p>
+                                </div>
+                                <div class="col">
+                                    <img src="img/music.svg" width="500px">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
     </main>
     <footer>
@@ -74,7 +118,25 @@
             </nav>
         </div>
     </footer>
-    <script src="./js/eventos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/eventos.js"></script>
 </body>
 
 </html>
